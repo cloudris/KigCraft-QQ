@@ -1413,7 +1413,8 @@ export const EditorWorkspace = forwardRef<EditorWorkspaceHandle, EditorWorkspace
     const compactRecipe = compactRecipeAnnotations(latestRecipeRef.current);
     const imageBlob = await exportEditedBlob(false);
     const fileName = `kigcraft-edit-${Date.now()}.png`;
-    downloadBlob(imageBlob, fileName);
+    // Modified 2026-10-05: an embedding application may save directly to QQ.
+    if (!onSave) downloadBlob(imageBlob, fileName);
     await onSave?.({ annotationPrompt: buildAnnotationPrompt(compactRecipe.annotations), fileName, imageBlob, recipe: compactRecipe });
   }
 

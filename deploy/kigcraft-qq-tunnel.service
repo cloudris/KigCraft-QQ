@@ -1,0 +1,13 @@
+[Unit]
+Description=Temporary HTTPS tunnel for KigCraft QQ pilot
+After=kigcraft-qq.service network-online.target
+[Service]
+WorkingDirectory=%h/kigcraft-qq
+EnvironmentFile=%h/kigcraft-qq/.env
+ExecStart=/usr/bin/node scripts/tunnel.mjs
+Restart=on-failure
+RestartSec=10
+UMask=0077
+NoNewPrivileges=true
+[Install]
+WantedBy=default.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=KigCraft QQ task editor and FAL queue
+After=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=%h/kigcraft-qq
+EnvironmentFile=%h/kigcraft-qq/.env
+ExecStart=/usr/bin/node server/index.mjs
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+[Install]
+WantedBy=default.target

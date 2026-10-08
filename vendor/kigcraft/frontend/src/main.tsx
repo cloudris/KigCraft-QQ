@@ -1,7 +1,8 @@
 import "./styles/index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "./app/App";
+// Modified 2026-10-05: standalone QQ task editor entry point.
+import { App } from "./bot/App";
 import { Providers } from "./app/providers";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
